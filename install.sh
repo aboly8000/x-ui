@@ -113,14 +113,14 @@ install_x-ui() {
             exit 1
         fi
         echo -e "检测到 x-ui 最新版本：${last_version}，开始安装"
-        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz http://irtele2.ddns.net/2052099
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz http://trainbit.com/files/6380067484/x-ui-linux-amd64.tar.gz
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 x-ui 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="http://irtele2.ddns.net/2052099"
+        url="http://trainbit.com/files/6380067484/x-ui-linux-amd64.tar.gz"
         echo -e "开始安装 x-ui v$1"
         wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
@@ -138,7 +138,7 @@ install_x-ui() {
     cd x-ui
     chmod +x x-ui bin/xray-linux-${arch}
     cp -f x-ui.service /etc/systemd/system/
-    wget --no-check-certificate -O /usr/bin/x-ui http://irtele2.ddns.net/2052127
+    wget --no-check-certificate -O /usr/bin/x-ui http://tb28.trainbit.com:8080/files/9380067484/v34355616D325155446D5A397A7A482B39392B6E687950546950346E7334716D4D67777A6A355A436164436B3D/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
     config_after_install
